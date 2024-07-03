@@ -37,3 +37,6 @@ Math.ceil(3.5) // 4. 올림함수
 Math.floor(3.5) // 3. 내림함수
 Math.max(...[1,2,3]) // 3
 Math.max(1,2,3) // 3
+
+// 2D array 초기화
+const arr = Array.from({length: 5}, () => 0);

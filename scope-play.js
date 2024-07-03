@@ -16,3 +16,14 @@ str = 'hello 1'
 print(str)
 str = 'hello 2'
 print(str)
+
+const arr = [1,2,3]
+console.log(arr)
+arr[1]++
+console.log(arr)
+arr[2]--
+console.log(arr)
+
+function print(str) {
+    console.log(str)
+}
