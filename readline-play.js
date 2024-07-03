@@ -23,3 +23,17 @@ import * as readline from 'node:readline/promises';
 
   process.exit();
 })();
+
+/**
+ * 코테 필수 문법
+ */
+
+// split
+"String".split("S") // regex 사용 가능
+
+// Math lib
+Math.abs(-3) // 3
+Math.ceil(3.5) // 4. 올림함수
+Math.floor(3.5) // 3. 내림함수
+Math.max(...[1,2,3]) // 3
+Math.max(1,2,3) // 3
