@@ -20,3 +20,9 @@ car.go()
 car.name = "새이름"
 car.sayName()
 console.log("abcd".substring(1))
+
+// @TODO : DataClass
+
+// @TODO : Singleton
+
+// @TODO : Inheritance

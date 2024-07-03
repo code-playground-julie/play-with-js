@@ -7,4 +7,12 @@ function foo(myparam) {
     console.log("Use variable here")
 }
 
-console.log(['1','2','3'].includes('1234'[1]))
+// var
+// var은 let, const, class와 다르게 선언 전에 호출할 수 있다.
+print(str) // -> undefined
+var str = 'hello world'
+print(str)
+str = 'hello 1'
+print(str)
+str = 'hello 2'
+print(str)
