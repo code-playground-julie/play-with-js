@@ -15,73 +15,73 @@
 import * as readline from 'node:readline/promises';
 
 // const readline = require('readline');
-const metaverseSize = 16
+const metaverseSize = 16(async () => {
+  let rl = readline.createInterface({ input: process.stdin });
+  let n = undefined;
+  let k = undefined;
+  let spaces = [];
+  for await (const line of rl) {
+    if (n == undefined && k == undefined) {
+      [n, k] = line.split(' ');
+      if (n == undefined || k == undefined) {
+        throw new Error('인풋 받는거 잘못됨');
+      }
+    } else {
+      spaces.push(line.split(' '));
+      if (spaces.length >= n) {
+        rl.close();
+        break;
+      }
+    }
+  }
 
+  solution(n, k, spaces);
 
-(async () => {
-	let rl = readline.createInterface({ input: process.stdin });
-	let n = undefined;
-	let k = undefined;
-	let spaces = [];
-	for await (const line of rl) {
-		if (n==undefined && k==undefined) {
-			[n,k] = line.split(' ')
-			if (n==undefined || k==undefined) {
-				throw new Error("인풋 받는거 잘못됨")
-			}
-		} else {
-			spaces.push(line.split(' '))
-			if (spaces.length >= n) {
-				rl.close();
-				break
-			}
-		}
-	}
-	
-	solution(n, k, spaces)
-	
-	process.exit();
+  process.exit();
 })();
 
 function solution(n, k, spaces) {
-	// brute force -> 1,000,000칸에 올라간 종의 수 다 세기
-	const arr = Array.from({length: metaverseSize}, () => Array.from({length: metaverseSize}, () => 0));
-	
-	for (var i = 0; i < spaces.length ; i++) {
-		addSpecies(arr, spaces[i])
-	}
-	
-	console.log(countCompeteAreaSize(arr, k))
-	
+  // brute force -> 1,000,000칸에 올라간 종의 수 다 세기
+  const arr = Array.from({ length: metaverseSize }, () =>
+    Array.from({ length: metaverseSize }, () => 0)
+  );
+
+  for (var i = 0; i < spaces.length; i++) {
+    addSpecies(arr, spaces[i]);
+  }
+
+  console.log(countCompeteAreaSize(arr, k));
 }
 
 function addSpecies(arr, space) {
-	if (space.length != 4) return
-	const [minX, minY, maxX, maxY] = space
-	for (var i = minX; i <= maxX; i++) {
-		for (var j = minY; j < maxY; j++) {
-			arr[j][i]++
-		}
-	}
-	console.log(arr.toMatrixString())
-	console.log('\n')
+  if (space.length != 4) return;
+  const [minX, minY, maxX, maxY] = space;
+  for (var i = minX; i <= maxX; i++) {
+    for (var j = minY; j < maxY; j++) {
+      arr[j][i]++;
+    }
+  }
+  console.log(arr.toMatrixString());
+  console.log('\n');
 }
 
 function countCompeteAreaSize(arr, k) {
-	let count = 0
-	for (var i=0; i<arr.length; i++) {
-		for (var j=0; j<arr[0].length; j++) {
-			if (arr[j][i] == k) {count++}
-		}
-	}
-	return count
+  let count = 0;
+  for (var i = 0; i < arr.length; i++) {
+    for (var j = 0; j < arr[0].length; j++) {
+      if (arr[j][i] == k) {
+        count++;
+      }
+    }
+  }
+  return count;
 }
 
 // @todo delete me
 Array.prototype.toMatrixString = function () {
-	if (!Array.isArray(this) || !Array.isArray(this[0])) {
-			throw new TypeError('The array must be a 2D array.');
-	}
+  if (!Array.isArray(this) || !Array.isArray(this[0])) {
+    throw new TypeError('The array must be a 2D array.');
+  }
 
-	return this.map(row => row.join(' ')).join('\n');
+  return this.map((row) => row.join(' ')).join('\n');
 };
