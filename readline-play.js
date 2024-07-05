@@ -3,6 +3,7 @@ import * as readline from 'node:readline/promises';
 
 (async () => {
   let rl = readline.createInterface({ input: process.stdin });
+  
   let inputCount = 0;
   let n = 0;
 
