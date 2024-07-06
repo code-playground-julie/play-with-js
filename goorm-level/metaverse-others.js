@@ -1,3 +1,4 @@
+// From : https://codingbutterfly.tistory.com/39
 // Run by Node.js
 import * as readline from 'node:readline/promises';
 
