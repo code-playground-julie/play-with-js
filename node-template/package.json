@@ -4,7 +4,7 @@
   "description": "### 체크리스트",
   "main": "index.js",
   "scripts": {
-    "start": "npm i",
+    "start": "npm i --silent",
     "run": "node main.js",
     "test": "npm run esm-test",
     "esm-test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --verbose"
